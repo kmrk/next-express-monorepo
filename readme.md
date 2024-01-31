@@ -5,3 +5,5 @@ monorepo template for personal use.
 * pnpm --filter web dev
 * pnpm --filter admin dev
 
+libs : `nextjs` `drizzle` `lucia-auth` `express` `tailwind` `fp-ts` `io-ts` `io-ts-types`
+tools: `pnpm` `tsup`
