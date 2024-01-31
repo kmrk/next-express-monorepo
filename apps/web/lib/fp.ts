@@ -1,0 +1,15 @@
+export * as A from "fp-ts/lib/Array";
+export * as E from "fp-ts/lib/Either";
+export * as Eq from "fp-ts/lib/Eq";
+export * as IO from "fp-ts/lib/IO";
+export * as IOE from "fp-ts/lib/IOEither";
+export * as NEA from "fp-ts/lib/NonEmptyArray";
+export * as O from "fp-ts/lib/Option";
+export * as R from "fp-ts/lib/Reader";
+export * as Rec from "fp-ts/lib/Record";
+export * as RA from "fp-ts/lib/ReadonlyArray";
+export * as RT from "fp-ts/lib/ReaderTask";
+export * as RTE from "fp-ts/lib/ReaderTaskEither";
+export * as T from "fp-ts/lib/Task";
+export * as TE from "fp-ts/lib/TaskEither";
+export { pipe } from "fp-ts/lib/function";

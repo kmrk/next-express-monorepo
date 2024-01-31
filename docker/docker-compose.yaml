@@ -1,0 +1,50 @@
+version: '3'
+services:
+  database:
+    container_name: database
+    image: postgres
+    restart: always
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+
+    environment:
+      - POSTGRES_DB=repo_db
+      - POSTGRES_USER=db_user
+      - POSTGRES_PASSWORD=db_password
+
+  adminer:
+    container_name: adminer
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+    depends_on:
+      - database
+
+  # OPEN WHEN PRODUCTION ENV
+  # app:
+  #   container_name: app
+  #   build:
+  #     context: ../
+  #     dockerfile: Dockerfile
+  #   restart: always
+  #   depends_on:
+  #     - database
+  #   ports:
+  #     - '3001:3001'
+  #     - '3002:3002'
+
+  # caddy:
+  #   container_name: caddy
+  #   image: caddy:latest
+  #   restart: always
+  #   volumes:
+  #     - ./volumes/caddy/Caddyfile:/etc/caddy/Caddyfile
+  #   ports:
+  #     - '80:80'
+  #   depends_on:
+  #     - database
+  #     - adminer
+  #     - app

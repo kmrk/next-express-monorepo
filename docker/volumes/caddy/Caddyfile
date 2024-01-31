@@ -1,0 +1,25 @@
+
+# Caddyfile for supabase-based applications 
+
+#:4040 {
+#  reverse_proxy adminer:8080
+#  basicauth / {
+#    sysadmin $2a$14$AZ.CddBYZVWOsrGbyETlMOggvu/Lfs2aos2yj48TMXuyM2XvM1Ed2
+#  }
+#}
+
+:80 { 
+	handle_path /pgadmin* {
+		reverse_proxy adminer:8080
+	}
+
+	handle_path /admin* {
+		reverse_proxy app:3001
+	}
+
+  handle {
+		reverse_proxy app:3002
+		tls aaa@bbb.ccc
+	}
+
+}

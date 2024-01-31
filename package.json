@@ -1,0 +1,23 @@
+{
+  "name": "@repo/main",
+  "version": "1.0.0",
+  "private": "true",
+  "scripts": {
+    "build": "",
+    "build:web": "pnpm --filter web run build",
+    "build:admin": "pnpm --filter admin run build",
+    "build:server": "pnpm --filter server run build",
+    "dev": "",
+    "dev:web": "pnpm --filter web run dev",
+    "dev:admin": "pnpm --filter admin run dev",
+    "dev:server": "pnpm --filter server run dev",
+    "db:sync": "pnpm --filter shared run db:sync"
+  },
+  "packageManager": "pnpm@8.9.0",
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "dotenv": "^16.4.1"
+  }
+}

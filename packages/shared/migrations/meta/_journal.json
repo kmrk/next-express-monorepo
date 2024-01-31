@@ -1,0 +1,13 @@
+{
+  "version": "5",
+  "dialect": "pg",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1706711150297,
+      "tag": "0000_ambitious_talon",
+      "breakpoints": true
+    }
+  ]
+}

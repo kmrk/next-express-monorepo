@@ -1,0 +1,14 @@
+{
+  "extends": "@repo/config/ts/base.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "outDir": "build",
+    // "incremental": true,
+    // "tsBuildInfoFile": "tsconfig.tsbuildinfo",
+  },
+  "ts-node": {
+    "esm": true,
+  },
+  "include": ["src/**/*.ts", "index.ts"]
+  
+}
