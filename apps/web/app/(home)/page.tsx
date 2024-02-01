@@ -2,14 +2,14 @@ import { testServer } from "@repo/next";
 import { Button } from "@repo/react";
 import { validateRequest } from '../(auth)/login/validate-request';
 
-import { logout } from '@repo/shared';
+import { auth } from '@repo/shared';
 
 export default async function Home() {
 
   console.log(testServer());
   const session = await validateRequest();
   const doLogout = () => {
-    logout(session.session?.id!);
+    auth.logout(session.session?.id!);
   };
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-24">

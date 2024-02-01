@@ -1,8 +1,7 @@
 'use server';
-import { login } from "@repo/shared";
 import { Cookie } from 'lucia';
 import { cookies } from "next/headers";
-
+import { login } from '@repo/shared/auth';
 
 export const doLogin = async (phone: string, password: string) => await login({
   phone: phone,
@@ -14,3 +13,6 @@ export const doLogin = async (phone: string, password: string) => await login({
     sessionCookie.attributes,
   );
 });
+
+
+

@@ -29,6 +29,3 @@ declare module "lucia" {
     DatabaseUserAttributes: Omit<UserSchema, "id" | "password">;
   }
 }
-
-
-export * from './action';
