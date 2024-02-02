@@ -7,7 +7,6 @@ const Foot = ()=>
     <span className="text-gray-500 sm:text-center dark:text-gray-400">
       © 2023{" "}
       <a href="https://flowbite.com/" className="hover:underline">
-        久达自动化
       </a>
       . All Rights Reserved.
     </span>
