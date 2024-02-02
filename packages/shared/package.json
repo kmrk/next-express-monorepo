@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "db:gen": "drizzle-kit generate:pg --schema ./src/db/schema/index.ts  --out=./migrations",
-    "db:migrate": "tsx ./src/db/migrate.ts",
+    "db:gen": "drizzle-kit generate:pg --schema ./db/schema/index.ts  --out=./migrations",
+    "db:migrate": "tsx ./db/migrate.ts",
     "db:sync": "pnpm db:gen && pnpm db:migrate"
   },
   "keywords": [],

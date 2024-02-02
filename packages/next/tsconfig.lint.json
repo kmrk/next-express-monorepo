@@ -1,5 +1,5 @@
 {
-  "extends": "@repo/config/ts/nextjs.json",
+  "extends": "@repo/config/ts/react-library.json",
   "compilerOptions": {
     "outDir": "dist"
   },
