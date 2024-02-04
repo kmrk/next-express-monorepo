@@ -1,4 +1,7 @@
 version: '3'
+networks:
+  local:
+    driver: bridge
 services:
   database:
     container_name: database
@@ -10,9 +13,9 @@ services:
       - 5432:5432
 
     environment:
-      - POSTGRES_DB=repo_db
-      - POSTGRES_USER=db_user
-      - POSTGRES_PASSWORD=db_password
+      - POSTGRES_DB=jd_auto
+      - POSTGRES_USER=jd_auto
+      - POSTGRES_PASSWORD=jd_auto
 
   adminer:
     container_name: adminer
@@ -23,28 +26,56 @@ services:
     depends_on:
       - database
 
-  # OPEN WHEN PRODUCTION ENV
+  # simple monorepo use pm2 without docker
   # app:
   #   container_name: app
   #   build:
   #     context: ../
   #     dockerfile: Dockerfile
-  #   restart: always
+  #   # entrypoint: pnpm db:sync && pnpm build
+  #   restart: no
   #   depends_on:
   #     - database
   #   ports:
   #     - '3001:3001'
   #     - '3002:3002'
-
-  # caddy:
-  #   container_name: caddy
-  #   image: caddy:latest
-  #   restart: always
-  #   volumes:
-  #     - ./volumes/caddy/Caddyfile:/etc/caddy/Caddyfile
-  #   ports:
-  #     - '80:80'
+  ## ---OR--
+  # web:
+  #   container_name: web
+  #   build:
+  #     context: ../
+  #     dockerfile: Dockerfile
+  #   # entrypoint: pnpm db:sync && pnpm build
+  #   command:  sh -c 'cd apps/web && node express.js'   
+  #   restart: no
   #   depends_on:
   #     - database
-  #     - adminer
-  #     - app
+  #   ports:
+  #     - '3002:3002'
+
+  # admin:
+  #   container_name: admin
+  #   build:
+  #     context: ../
+  #     dockerfile: Dockerfile
+  #   # entrypoint: pnpm db:sync && pnpm build
+  #   command:  sh -c 'cd apps/admin && node express.js'
+  #   restart: no
+  #   depends_on:
+  #     - database
+  #   ports:
+  #     - '3001:3001'
+
+  caddy:
+    container_name: caddy
+    image: caddy:latest
+    restart: always
+    volumes:
+      - ./volumes/caddy/Caddyfile:/etc/caddy/Caddyfile
+    ports:
+      - '80:80'
+    depends_on:
+      - database
+      - adminer
+    networks:
+      local:

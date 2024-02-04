@@ -14,12 +14,11 @@
 	}
 
 	handle_path /admin* {
-		reverse_proxy app:3001
+		reverse_proxy host.docker.internal:3001
 	}
 
   handle {
-		reverse_proxy app:3002
-		tls aaa@bbb.ccc
+		reverse_proxy host.docker.internal:3002
 	}
 
 }
