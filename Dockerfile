@@ -14,3 +14,6 @@ RUN pnpm install --registry=https://registry.npmmirror.com
 
 #CMD pnpm build
 CMD pnpm dev
+
+
+# maybe two dockerfile? I use pm2 not docker for nextjs production

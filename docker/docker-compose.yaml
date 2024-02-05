@@ -66,16 +66,17 @@ services:
   #   ports:
   #     - '3001:3001'
 
-  caddy:
-    container_name: caddy
-    image: caddy:latest
-    restart: always
-    volumes:
-      - ./volumes/caddy/Caddyfile:/etc/caddy/Caddyfile
-    ports:
-      - '80:80'
-    depends_on:
-      - database
-      - adminer
-    networks:
-      local:
+  # I dont use caddy in docker because tls problem
+  # caddy:
+  #   container_name: caddy
+  #   image: caddy:latest
+  #   restart: always
+  #   volumes:
+  #     - ./volumes/caddy/Caddyfile:/etc/caddy/Caddyfile
+  #   ports:
+  #     - '80:80'
+  #   depends_on:
+  #     - database
+  #     - adminer
+  #   networks:
+  #     local:

@@ -22,3 +22,9 @@
 	}
 
 }
+
+
+# www.domain.com {
+#	tls any@any.com
+#	reverse_proxy host.docker.internal:3001
+# }
